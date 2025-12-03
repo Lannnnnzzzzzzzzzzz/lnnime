@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-const BASE_URL = "https://www.sankavollerei.com/anime";
+const BASE_URL = "https://www.sankavollerei.com";
 
 export default async function handler(
   req: NextApiRequest,
@@ -16,7 +16,7 @@ export default async function handler(
   const queryParams = new URLSearchParams(req.query as Record<string, string>);
   const queryString = queryParams.toString();
 
-  const url = `${BASE_URL}/${endpoint}${queryString ? `?${queryString}` : ""}`;
+  const url = `${BASE_URL}/anime/${endpoint}${queryString ? `?${queryString}` : ""}`;
 
   try {
     const response = await fetch(url);

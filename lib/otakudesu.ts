@@ -1,4 +1,4 @@
-const BASE_URL = "https://www.sankavollerei.com/anime";
+const BASE_URL = "https://www.sankavollerei.com";
 
 export interface OtakudesuAnime {
   title: string;
@@ -48,61 +48,61 @@ export interface EpisodeDetail {
 }
 
 export async function fetchHome() {
-  const response = await fetch(`${BASE_URL}/home`);
+  const response = await fetch(`${BASE_URL}/anime/home`);
   return response.json();
 }
 
 export async function fetchSchedule() {
-  const response = await fetch(`${BASE_URL}/schedule`);
+  const response = await fetch(`${BASE_URL}/anime/schedule`);
   return response.json();
 }
 
 export async function fetchAnimeDetail(slug: string) {
-  const response = await fetch(`${BASE_URL}/anime/${slug}`);
+  const response = await fetch(`${BASE_URL}/anime/anime/${slug}`);
   return response.json();
 }
 
 export async function fetchCompleteAnime(page: number = 1) {
-  const response = await fetch(`${BASE_URL}/complete-anime/${page}`);
+  const response = await fetch(`${BASE_URL}/anime/complete-anime/${page}`);
   return response.json();
 }
 
 export async function fetchOngoingAnime(page: number = 1) {
-  const response = await fetch(`${BASE_URL}/ongoing-anime?page=${page}`);
+  const response = await fetch(`${BASE_URL}/anime/ongoing-anime?page=${page}`);
   return response.json();
 }
 
 export async function fetchGenres() {
-  const response = await fetch(`${BASE_URL}/genre`);
+  const response = await fetch(`${BASE_URL}/anime/genre`);
   return response.json();
 }
 
 export async function fetchAnimeByGenre(slug: string, page: number = 1) {
-  const response = await fetch(`${BASE_URL}/genre/${slug}?page=${page}`);
+  const response = await fetch(`${BASE_URL}/anime/genre/${slug}?page=${page}`);
   return response.json();
 }
 
 export async function fetchEpisodeDetail(slug: string) {
-  const response = await fetch(`${BASE_URL}/episode/${slug}`);
+  const response = await fetch(`${BASE_URL}/anime/episode/${slug}`);
   return response.json();
 }
 
 export async function searchAnime(keyword: string) {
-  const response = await fetch(`${BASE_URL}/search/${encodeURIComponent(keyword)}`);
+  const response = await fetch(`${BASE_URL}/anime/search/${encodeURIComponent(keyword)}`);
   return response.json();
 }
 
 export async function fetchBatch(slug: string) {
-  const response = await fetch(`${BASE_URL}/batch/${slug}`);
+  const response = await fetch(`${BASE_URL}/anime/batch/${slug}`);
   return response.json();
 }
 
 export async function fetchStreamServer(serverId: string) {
-  const response = await fetch(`${BASE_URL}/server/${serverId}`);
+  const response = await fetch(`${BASE_URL}/anime/server/${serverId}`);
   return response.json();
 }
 
 export async function fetchAllAnime() {
-  const response = await fetch(`${BASE_URL}/unlimited`);
+  const response = await fetch(`${BASE_URL}/anime/unlimited`);
   return response.json();
 }
