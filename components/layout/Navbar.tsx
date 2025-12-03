@@ -123,8 +123,8 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     className={classNames(
-                      'nav-link hover:text-sky-400 transition-colors duration-200',
-                      isActive ? 'text-sky-400' : 'text-white'
+                      'nav-link transition-colors duration-200',
+                      isActive ? 'text-white' : 'text-gray-400'
                     )}
                   >
                     {item.label}
@@ -140,10 +140,10 @@ export default function Navbar() {
                   src={avatarUrl}
                   alt="Profile"
                   onError={(e) => (e.currentTarget.src = '/default.png')}
-                  className="w-10 h-10 rounded-full border-2 border-sky-400 object-cover"
+                  className="w-10 h-10 rounded-full border-2 border-white/30 object-cover hover:border-white/50 transition"
                 />
               ) : (
-                <FaRegUserCircle className="text-3xl text-sky-400 hover:text-sky-300" />
+                <FaRegUserCircle className="text-3xl text-white/70 hover:text-white transition" />
               )}
             </Link>
           </div>
@@ -152,7 +152,7 @@ export default function Navbar() {
             {!isAIPage && (
               <Link
                 href="/aichixia"
-                className="text-sky-400 hover:text-sky-300 active:scale-95 transition-transform"
+                className="text-white/70 hover:text-white active:scale-95 transition-all"
                 title="AI Assistant"
               >
                 <PiSparkleFill className="text-2xl" />
@@ -165,10 +165,10 @@ export default function Navbar() {
                   src={avatarUrl}
                   alt="Profile"
                   onError={(e) => (e.currentTarget.src = '/default.png')}
-                  className="w-9 h-9 rounded-full border-2 border-sky-400 object-cover"
+                  className="w-9 h-9 rounded-full border-2 border-white/30 object-cover"
                 />
               ) : (
-                <FaRegUserCircle className="text-2xl text-sky-400 hover:text-sky-300" />
+                <FaRegUserCircle className="text-2xl text-white/70 hover:text-white transition" />
               )}
             </Link>
           </div>

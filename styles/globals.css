@@ -39,32 +39,28 @@ div[style*="overflow-x: auto"]::-webkit-scrollbar {
 }
 
 .nav-link {
-  @apply relative text-white transition-colors duration-300;
+  @apply relative text-gray-300 transition-colors duration-300;
 }
 .nav-link::after {
   content: "";
-  @apply absolute left-0 bottom-0 w-0 h-[2px] bg-sky-400 transition-all duration-300;
+  @apply absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300;
 }
 .nav-link:hover::after {
   @apply w-full;
 }
+.nav-link:hover {
+  @apply text-white;
+}
 
 .logo-gradient {
-  background: linear-gradient(to right, #38bdf8, #3b82f6, #6366f1);
+  background: linear-gradient(to right, #ffffff, #e5e5e5, #a3a3a3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow:
-    0 0 8px rgba(56, 189, 248, 0.5),
-    0 0 16px rgba(59, 130, 246, 0.4),
-    0 0 24px rgba(99, 102, 241, 0.3);
-  transition: transform 0.2s ease, text-shadow 0.3s ease;
+  transition: transform 0.2s ease;
 }
 .logo-gradient:hover {
-  transform: scale(1.05);
-  text-shadow:
-    0 0 12px rgba(56, 189, 248, 0.7),
-    0 0 20px rgba(59, 130, 246, 0.5),
-    0 0 28px rgba(99, 102, 241, 0.4);
+  transform: scale(1.03);
+  filter: brightness(1.2);
 }
 
 .fade-left {
@@ -90,8 +86,8 @@ div[style*="overflow-x: auto"]::-webkit-scrollbar {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card-hover:hover {
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
 @keyframes slideIn {

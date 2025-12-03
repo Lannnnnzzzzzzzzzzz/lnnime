@@ -39,22 +39,22 @@ export default function LandingPage() {
 
   const BackgroundDots = () => (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {Array.from({ length: 12 }).map((_, i) => (
+      {Array.from({ length: 8 }).map((_, i) => (
         <motion.div
           key={i}
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{
-            opacity: [0, 0.1, 0],
+            opacity: [0, 0.03, 0],
             y: [0, -30, 0],
             x: [0, 15, -15]
           }}
-          transition={{ repeat: Infinity, duration: 9 + i, delay: i * 0.5 }}
-          className="absolute bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 rounded-full blur-3xl opacity-10"
+          transition={{ repeat: Infinity, duration: 12 + i, delay: i * 0.7 }}
+          className="absolute bg-white rounded-full blur-3xl"
           style={{
-            width: 200 + i * 12,
-            height: 200 + i * 12,
-            left: `${i * 8}%`,
-            top: `${10 + i * 6}%`
+            width: 180 + i * 10,
+            height: 180 + i * 10,
+            left: `${i * 10}%`,
+            top: `${10 + i * 8}%`
           }}
         />
       ))}
@@ -171,11 +171,11 @@ export default function LandingPage() {
               <motion.button
                 onClick={() => setLang(lang === 'EN' ? 'ID' : 'EN')}
                 whileTap={{ scale: 0.9 }}
-                className="relative w-20 h-9 flex items-center bg-gray-800 rounded-full px-1 cursor-pointer overflow-hidden border border-gray-700"
+                className="relative w-20 h-9 flex items-center bg-white/10 rounded-full px-1 cursor-pointer overflow-hidden border border-white/20"
               >
                 <motion.div
                   layout
-                  className="absolute top-1 left-1 w-7 h-7 rounded-full bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 shadow-lg"
+                  className="absolute top-1 left-1 w-7 h-7 rounded-full bg-white shadow-lg"
                   animate={{ x: lang === 'EN' ? 0 : 40 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 />
@@ -190,7 +190,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: -8, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="p-2 pb-2 leading-[1.1] text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600"
+              className="p-2 pb-2 leading-[1.1] text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white"
             >
               {lang === 'EN'
                 ? 'The Ultimate Hub for Anime, Manga, Manhwa & Light Novels'
@@ -213,7 +213,7 @@ export default function LandingPage() {
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/explore"
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 shadow-lg hover:scale-105 transform transition w-full sm:w-auto justify-center"
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-gray-100 hover:scale-[1.02] transform transition w-full sm:w-auto justify-center"
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span className="font-semibold">
@@ -223,7 +223,7 @@ export default function LandingPage() {
 
               <Link
                 href="/community"
-                className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border border-white/10 text-sm hover:bg-white/5 transition w-full sm:w-auto justify-center"
+                className="inline-flex items-center gap-3 px-5 py-3 rounded-xl border border-white/20 text-sm hover:bg-white/5 hover:border-white/30 transition w-full sm:w-auto justify-center"
               >
                 <FaUsers className="w-4 h-4" />
                 <span>{lang === 'EN' ? 'Community' : 'Komunitas'}</span>
@@ -244,10 +244,10 @@ export default function LandingPage() {
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.45, delay: idx * 0.06 }}
-                    className="group relative rounded-2xl p-6 min-h-[180px] flex flex-col bg-gradient-to-b from-white/5 to-transparent border border-white/10 backdrop-blur-sm hover:shadow-lg hover:shadow-sky-400/30 transition-all cursor-pointer"
+                    className="group relative rounded-xl p-6 min-h-[180px] flex flex-col bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer"
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="p-3 rounded-lg bg-gradient-to-br from-sky-400 via-sky-500 to-sky-600 text-black shadow-md">
+                      <div className="p-3 rounded-lg bg-white text-black">
                         {f.icon}
                       </div>
                       <div>
@@ -257,7 +257,7 @@ export default function LandingPage() {
 
                     <div className="text-sm text-gray-300 line-clamp-3 flex-1">{f.desc}</div>
 
-                    <div className="mt-4 text-xs text-sky-400 group-hover:text-sky-300 transition">
+                    <div className="mt-4 text-xs text-gray-400 group-hover:text-white transition">
                       {lang === 'EN' ? 'Learn more →' : 'Selengkapnya →'}
                     </div>
                   </motion.div>
@@ -272,7 +272,7 @@ export default function LandingPage() {
                 ? 'Meet Aichixia – Your AI Assistant'
                 : 'Kenalan dengan Aichixia – Asisten AI Kamu'}
             </h3>
-            <div className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm shadow-lg">
+            <div className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
               <div className="space-y-4 text-sm">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -280,7 +280,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.5 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="px-4 py-2 rounded-2xl bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 text-white shadow">
+                  <div className="px-4 py-2 rounded-lg bg-white text-black font-medium">
                     {lang === 'EN'
                       ? 'Hi Aichixia, recommend me a new anime this season!'
                       : 'Hai Aichixia, rekomendasiin anime baru musim ini dong!'}
@@ -293,7 +293,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="flex items-start gap-3 justify-end"
                 >
-                  <div className="px-4 py-2 rounded-2xl bg-white/10 text-gray-200 shadow">
+                  <div className="px-4 py-2 rounded-lg bg-white/10 text-gray-200">
                     {lang === 'EN'
                       ? 'Sure! How about Sousou no Frieren? It’s trending this season with amazing reviews.'
                       : 'Tentu! Gimana kalau Sousou no Frieren? Lagi trending musim ini dengan ulasan keren.'}
@@ -304,7 +304,7 @@ export default function LandingPage() {
               <div className="mt-6 flex justify-center">
                 <Link
                   href="/aichixia"
-                  className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 shadow-lg hover:scale-105 transform transition font-semibold"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-gray-100 hover:scale-[1.02] transform transition"
                 >
                   {lang === 'EN' ? 'Chat with Aichixia' : 'Ngobrol dengan Aichixia'}
                 </Link>
@@ -331,7 +331,7 @@ export default function LandingPage() {
                 >
                   <button
                     onClick={() => setOpenFAQ(openFAQ === i ? null : i)}
-                    className="w-full flex items-center justify-between px-4 py-4 text-left"
+                    className="w-full flex items-center justify-between px-4 py-4 text-left hover:text-white transition"
                   >
                     <span className="font-medium">{f.q}</span>
                     <motion.span
