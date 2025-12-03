@@ -93,13 +93,13 @@ export default function LandingPage() {
       icon: <FaBookOpen className="w-8 h-8" />
     },
     {
-      id: 'ln',
-      title: 'Light Novel',
-      href: '/light-novel',
+      id: 'donghua',
+      title: 'Donghua',
+      href: '/donghua',
       desc:
         lang === 'EN'
-          ? 'Summaries, translations, and recommendations from isekai to slice of life.'
-          : 'Ringkasan, terjemahan, dan rekomendasi dari isekai hingga slice of life.',
+          ? 'Chinese animation with subtitles, latest episodes, and recommendations.'
+          : 'Animasi China dengan subtitle, episode terbaru, dan rekomendasi.',
       icon: <FaFeatherAlt className="w-8 h-8" />
     }
   ]

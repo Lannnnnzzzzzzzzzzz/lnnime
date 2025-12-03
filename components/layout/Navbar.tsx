@@ -16,7 +16,7 @@ const navItems = [
   { href: '/explore', label: 'EXPLORE' },
   { href: '/manga', label: 'MANGA' },
   { href: '/manhwa', label: 'MANHWA' },
-  { href: '/light-novel', label: 'LIGHT NOVEL' },
+  { href: '/donghua', label: 'DONGHUA' },
   { href: '/aichixia', label: 'AI' },
 ]
 
