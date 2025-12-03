@@ -40,16 +40,28 @@ export default function WatchPage() {
   const [commentText, setCommentText] = useState("");
 
   useEffect(() => {
-    if (!id) return;
+    if (!id || typeof id !== 'string') return;
 
     const fetchStream = async () => {
       try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/zoro/watch/${id}`
-        );
+        const res = await fetch(`/api/otakudesu/episode/${id}`);
         const data = await res.json();
-        setSources(data.sources || []);
-        setSubtitles(data.subtitles || []);
+
+        if (data.error || !data.data) {
+          throw new Error('Episode not found');
+        }
+
+        const episodeData = data.data;
+        const streamLinks = episodeData.servers || episodeData.stream_links || [];
+
+        const formattedSources: Source[] = streamLinks.map((server: any) => ({
+          url: server.url || server.stream_url || '',
+          quality: server.quality || server.name || '720p',
+          isM3U8: server.url?.includes('.m3u8') || false,
+        }));
+
+        setSources(formattedSources);
+        setSubtitles([]);
         setError(false);
       } catch (err) {
         console.error("Failed to fetch stream:", err);
